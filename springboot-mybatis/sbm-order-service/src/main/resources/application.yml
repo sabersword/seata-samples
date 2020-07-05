@@ -6,7 +6,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/db_order?useSSL=false&serverTimezone=UTC
     username: root
-    password: 123456
+    password: root
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 seata:
   enabled: true
   application-id: order-service
@@ -79,7 +84,7 @@ seata:
       username: ""
       password: ""
   registry:
-    type: file
+    type: nacos
     consul:
       cluster: default
       server-addr: 127.0.0.1:8500
